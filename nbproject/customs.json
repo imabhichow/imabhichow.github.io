@@ -1,0 +1,12 @@
+{
+    "elements": {},
+    "attributes": {
+        "formaction": {
+            "context": "button"
+        },
+        "background": {},
+        "http-equiv": {
+            "context": "meta"
+        }
+    }
+}

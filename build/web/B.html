@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial;}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+.split {
+  height: 90%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 1;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+  left: 0;
+  background-color: graytext;
+}
+
+/* Control the right side */
+.right {
+  right: 0;
+  background-color: whitesmoke;
+}
+
+/* If you want the content centered horizontally and vertically */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+
+/* Style the image inside the centered container, if needed */
+.centered img {
+  width: 150px;
+  border-radius: 50%;
+}
+
+</style>
+</head>
+
+<div class="tab">
+  <button  onclick='window.location.replace("Home.html")'>Home</button>
+  <button  onclick='window.location.replace("P")'>Profile</button>
+  <button  onclick='window.location.replace("B")'>Backup</button>
+  <button  onclick='window.location.replace("R.html")'>Restore</button>
+</div>
+
+    
+    
+    
+<!-- Tab content -->
+
+
+
+
+
+
+    <div class="split left">
+        <div class="centered" >
+
+            <div class="tab">
+        <button class="tablinks" onclick="openCity(event,'create')">+ Create Schedule</button>
+            </div>
+            <div id="create" class="tabcontent"></div>
+        <h2>Backup Configuration</h2>
+        
+        <form action="Backup" style="border:2px solid #ccc" method="post">
+            <div class="container">
+                <h1>Create Backup Schedule</h1>
+                    <p>Please fill in this form to create a schedule.</p>
+                <hr>
+                <table>
+                    <tr>
+                        <td>   <label for="Backupname"><b>Backup Schedule</b></label></td> 
+                        <td><input type="text" placeholder="Enter Schedule Name" name="Backupname" required></td> 
+                    </tr>
+                    <tr>
+                        <td><label for="Interval"><b>Time Interval</b></label></td> 
+                        <td><input type="text" placeholder="Frequency limit(in mins)" name="Interval" required></td> 
+                    </tr>
+                    <tr>
+                        <td><label for="size"><b>Backups limit)</b></label></td> 
+                        <td><input type="text" placeholder="Backups Limit(like last 5)" name="size" required></td> 
+                    </tr>         
+                </table>
+            <div class="clearfix">
+                <button type="button" onclick='window.location.replace("B.html")' class="cancelbtn">Cancel</button>
+                <button type="submit" class="signupbtn">Create Schedule</button>
+            </div>
+        </div>
+        </form>
+            
+    </div>
+
+    </div>
+    </div>
+    <div class="split right">
+        <div class="centered">
+
+                    <div>Table Backups</div>
+                    
+                    
+
+        </div>
+    </div>  
+
+
+
+
+
+
+
+
+
+
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+   
+
+</html> 
+
+
+
+
+   out.println();
+            out.println("<table border='1'><tr><td><b>Backups</b></td></tr>");
+        while (table.next()) {
+             out.println("<tr>");
+              //  for (int i = 1; i <= table.getMetaData().getColumnCount(); i++)
+                    out.println("<td>"+table.getObject(1)+"</td>");
+             out.println("</tr>");     
+                
+        }
+        out.println("</table>");
